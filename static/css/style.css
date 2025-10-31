@@ -16,3 +16,20 @@ img{
 a{
     color: white;
 }
+
+.fondoblanco{
+    background-color: #FFFFFF;
+}
+
+.fondorosa{
+    background-color: #F6F3FC;
+}
+
+.fondobeige{
+    background-color: #FAFAFA;
+}
+
+.redes img{
+    width: 20px;
+    height: 20px;
+}
