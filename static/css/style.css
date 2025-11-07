@@ -1,24 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* SELECTORES GLOBALES */
 
-*{
+/* 1º el root: */
+:root{
     font-family: Poppins;
     font-size: 20px;
     color: black;
 
 }
+    /* Variables globales */
 
-img{
-    width: 300px;
-    height: 240px;
-}
-
+    /* Colores */
 a{
     color: white;
-}
-
-.fondoblanco{
-    background-color: #FFFFFF;
 }
 
 .fondorosa{
@@ -28,8 +23,26 @@ a{
 .fondobeige{
     background-color: #FAFAFA;
 }
+    /* Espacios */
+img{
+    width: 300px;
+    height: 240px;
+}
 
 .redes img{
     width: 20px;
     height: 20px;
 }
+
+.icono{
+    border-radius: 50%;
+    background-color: #FFFFFF;
+}
+
+.icono.cartas{
+    background-color: #00d75b;
+}
+
+    /* Fuentes */
+
+/* Resto de selectores globales */
