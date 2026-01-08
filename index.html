@@ -11,15 +11,25 @@
 
   <header>
     <div class="logo">Prelude</div>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#portafolio">Portafolio</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
+
+    <!-- Replaced: nav wrapped in a details/summary to allow toggle without JS -->
+    <details class="menu" role="navigation" aria-label="Menú principal">
+      <summary class="menu-summary" aria-controls="main-nav" aria-expanded="false">
+        <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="sr-only">Abrir menú</span>
+      </summary>
+
+      <nav id="main-nav">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#portafolio">Portafolio</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </details>
+
     <button class="btn-primary">Contáctanos</button>
   </header>
 

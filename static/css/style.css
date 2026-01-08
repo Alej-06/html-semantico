@@ -190,10 +190,10 @@ section h2 {
   box-shadow: 0 8px 15px rgba(0,0,0,0.05);
 }
 
-/* 11. PORTAFOLIO */
+/* 11. PORTAFOLIO (modificado: 4 columnas por defecto) */
 .portfolio {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(4, 1fr); /* forzar 4 columnas en desktop */
   gap: 2rem;
 }
 
@@ -205,6 +205,30 @@ section h2 {
 
 .portfolio img:hover {
   transform: scale(1.03);
+}
+
+/* 11.b Portfolio: en pantallas pequeñas mostrar 2 columnas en lugar de 1 */
+@media screen and (max-width: 700px) {
+  /* ...existing code... */
+
+  .portfolio {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .portfolio img {
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* En very small screens (<=420px) volver a 1 columna para evitar items demasiado estrechos */
+  @media screen and (max-width: 420px) {
+    .portfolio {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ...existing code... */
 }
 
 /* 12. CONTACTO */
@@ -238,7 +262,61 @@ footer a {
   color: var(--color-primary);
 }
 
-/* 14. RESPONSIVE: <=1000px */
+/* 5.b Añadido: styles para menu sin JS (details/summary) */
+details.menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: transparent;
+  border: none;
+}
+
+/* hide native marker */
+summary.menu-summary {
+  display: none; /* visible solo en móvil via media query */
+  list-style: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+summary.menu-summary::-webkit-details-marker { display: none; }
+
+/* hamburger lines */
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-dark);
+  margin: 4px 0;
+  transition: 0.25s ease;
+  border-radius: 2px;
+}
+
+/* transform burger to X when details open */
+details.menu[open] .hamburger span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+details.menu[open] .hamburger span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+details.menu[open] .hamburger span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* allow smooth show/hide of nav */
+details.menu nav {
+  transition: max-height 0.28s ease, opacity 0.28s ease;
+}
+
+/* small helper: visually-hidden for screen readers */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* 14. RESPONSIVE: <=1000px (modificado) */
 @media screen and (max-width: 1000px) {
   header {
     padding: 1rem 4%;
@@ -284,10 +362,99 @@ footer a {
   footer {
     padding: 1.5rem 1rem;
   }
+
+  /* Centrar elementos que quedan sueltos al reducir la pantalla */
+  .container > *:only-child {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
+  }
+  .cards > .card:only-child {
+    margin: 0 auto;
+    max-width: 640px;
+  }
+  .portfolio > figure:only-child {
+    margin: 0 auto;
+    max-width: 640px;
+  }
+
+  /* Portfolio: pasar a 2 columnas en esta resolución */
+  .portfolio {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 }
 
-/* 15. RESPONSIVE: <=700px */
+/* 15. RESPONSIVE: <=700px (modificado) */
 @media screen and (max-width: 700px) {
+  /* show summary hamburger on small screens */
+  summary.menu-summary { display: inline-flex; }
+
+  /* keep header compact */
+  header {
+    position: relative;
+    padding: 0.9rem 4%;
+  }
+
+  /* hide CTA to save espacio (optional) */
+  header > .btn-primary {
+    display: none;
+  }
+
+  /* make nav panel overlay hidden by default */
+  details.menu {
+    width: 100%;
+  }
+
+  /* collapsed state */
+  details.menu:not([open]) nav {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  /* opened state */
+  details.menu[open] nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border-radius: 0 0 8px 8px;
+    z-index: 9;
+    max-height: 500px; /* suficiente para mostrar items */
+    opacity: 1;
+    overflow: hidden;
+  }
+
+  header nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 0;
+    margin: 0;
+  }
+
+  header nav li {
+    width: 100%;
+    list-style: none;
+  }
+
+  header nav a {
+    display: block;
+    padding: 0.9rem 1rem;
+    color: var(--color-dark);
+    font-weight: 600;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.04);
+    background: transparent;
+  }
+
+  header nav a:hover {
+    background: rgba(0,0,0,0.02);
+  }
+
   header {
     flex-direction: column;
     align-items: center;
@@ -336,8 +503,24 @@ footer a {
     grid-template-columns: 1fr;
   }
 
+  /* Centrar cards en layouts de una columna y limitar ancho */
+  .cards {
+    justify-items: center; /* centra las tarjetas en la grid */
+  }
+  .cards > .card {
+    width: 100%;
+    max-width: 640px;
+  }
+
+  /* Mantener portfolio en 2 columnas (bajan de dos en dos) */
   .portfolio {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .portfolio > figure {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
   }
 
   .stats {
@@ -362,6 +545,88 @@ footer a {
   footer {
     font-size: 0.85rem;
     padding: 1rem 0.5rem;
+  }
+
+  /* Centrar elementos sueltos también en esta resolución (refuerzo) */
+  .container > *:only-child {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
+  }
+  .cards > .card:only-child {
+    margin: 0 auto;
+    max-width: 640px;
+  }
+  .portfolio > figure:only-child {
+    margin: 0 auto;
+    max-width: 640px;
+  }
+}
+
+/* 16. RESPONSIVE: <=420px (nuevo, top-level no anidado) */
+@media screen and (max-width: 420px) {
+  /* Portfolio: pasar a 1 columna para pantallas muy estrechas */
+  .portfolio {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Centrado / ajuste para tarjetas/figuras únicas o muy estrechas */
+  .cards {
+    justify-items: center;
+  }
+  .cards > .card,
+  .portfolio > figure {
+    max-width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* 17. RESPONSIVE: 701px a 1000px (nuevo) */
+@media screen and (min-width: 701px) and (max-width: 1000px) {
+  /* Centrar elementos que queden sueltos en este rango */
+  .container > *:only-child {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 900px;
+  }
+
+  /* Centrar una única tarjeta dentro de .cards */
+  .cards > .card:only-child {
+    margin: 0 auto !important;
+    max-width: 720px;
+    width: 100%;
+    justify-self: center;
+  }
+
+  /* Centrar una única figura dentro de .portfolio */
+  .portfolio > figure:only-child {
+    margin: 0 auto !important;
+    max-width: 720px;
+    width: 100%;
+    justify-self: center;
+  }
+
+  /* Forzar centrado de grids dentro de #servicios y #blog */
+  #servicios .cards,
+  #blog .cards {
+    justify-items: center;
+    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  #servicios .cards > .card,
+  #blog .cards > .card {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Asegurar que portfolio pase a 2 columnas en este rango */
+  .portfolio {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem;
   }
 }
 
