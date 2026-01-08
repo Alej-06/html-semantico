@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* ====== VARIABLES DE COLOR ====== */
+/* 1. VARIABLES DE COLOR */
 :root {
   --color-primary: #38c172;     /* Verde */
   --color-secondary: #6c63ff;   /* Violeta */
@@ -12,7 +12,7 @@
   --font-main: 'Poppins', 'Inter', sans-serif;
 }
 
-/* ====== RESETEO ====== */
+/* 2. RESETEO */
 * {
   margin: 0;
   padding: 0;
@@ -37,14 +37,16 @@ a:hover {
   color: var(--color-secondary);
 }
 
-/* ====== CONTENEDORES ====== */
+/* 3. BASE / BODY */
+
+/* 4. CONTENEDORES */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* ====== HEADER ====== */
+/* 5. HEADER */
 header {
   display: flex;
   justify-content: space-between;
@@ -88,7 +90,7 @@ header nav a {
   background: var(--color-secondary);
 }
 
-/* ====== HERO ====== */
+/* 6. HERO */
 .hero {
   display: flex;
   align-items: center;
@@ -118,7 +120,7 @@ header nav a {
   border-radius: 1rem;
 }
 
-/* ====== SECCIONES GENERALES ====== */
+/* 7. SECCIONES GENERALES */
 section {
   padding: 5rem 0;
 }
@@ -129,7 +131,7 @@ section h2 {
   margin-bottom: 2rem;
 }
 
-/* ====== TARJETAS ====== */
+/* 8. TARJETAS */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -154,7 +156,7 @@ section h2 {
   margin-bottom: 1rem;
 }
 
-/* ====== VIDEO / MEDIA ====== */
+/* 9. VIDEO / MEDIA */
 .video-section {
   text-align: center;
   background: var(--color-light);
@@ -167,7 +169,7 @@ section h2 {
   border-radius: 1rem;
 }
 
-/* ====== ESTADÍSTICAS ====== */
+/* 10. ESTADÍSTICAS */
 .stats {
   display: flex;
   justify-content: center;
@@ -188,7 +190,7 @@ section h2 {
   box-shadow: 0 8px 15px rgba(0,0,0,0.05);
 }
 
-/* ====== PORTAFOLIO ====== */
+/* 11. PORTAFOLIO */
 .portfolio {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -205,7 +207,7 @@ section h2 {
   transform: scale(1.03);
 }
 
-/* ====== CONTACTO ====== */
+/* 12. CONTACTO */
 .contact {
   background: var(--color-secondary);
   color: #fff;
@@ -223,7 +225,7 @@ section h2 {
   text-decoration: underline;
 }
 
-/* ====== FOOTER ====== */
+/* 13. FOOTER */
 footer {
   background: var(--color-light);
   color: var(--color-gray);
@@ -234,5 +236,132 @@ footer {
 
 footer a {
   color: var(--color-primary);
+}
+
+/* 14. RESPONSIVE: <=1000px */
+@media screen and (max-width: 1000px) {
+  header {
+    padding: 1rem 4%;
+  }
+
+  header nav ul {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero {
+    padding: 3rem 4%;
+    gap: 2rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero img {
+    max-width: 360px;
+  }
+
+  .cards {
+    gap: 1.5rem;
+  }
+
+  .video-section video,
+  .video-section img {
+    max-width: 90%;
+  }
+
+  .stat {
+    width: 100px;
+    height: 100px;
+  }
+
+  .contact {
+    width: 95%;
+    padding: 3rem 1.5rem;
+  }
+
+  footer {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* 15. RESPONSIVE: <=700px */
+@media screen and (max-width: 700px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 4%;
+  }
+
+  header .logo {
+    margin-bottom: 0;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 3%;
+    gap: 1.25rem;
+  }
+
+  .hero-text {
+    width: 100%;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+
+  .hero img {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    gap: 1rem;
+  }
+
+  .stat {
+    width: 90px;
+    height: 90px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 0.75rem 1rem;
+  }
+
+  .contact {
+    width: 95%;
+    padding: 2rem 1rem;
+  }
+
+  footer {
+    font-size: 0.85rem;
+    padding: 1rem 0.5rem;
+  }
 }
 
