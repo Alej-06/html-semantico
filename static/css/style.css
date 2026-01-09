@@ -249,6 +249,19 @@ section h2 {
   text-decoration: underline;
 }
 
+
+.contact .btn-primary {
+  display: inline-block; 
+  margin-top: 1.2rem;     
+}
+
+/* Mantener espaciado en pantallas pequeñas */
+@media screen and (max-width: 700px) {
+  .contact .btn-primary {
+    margin-top: 0.9rem;
+  }
+}
+
 /* 13. FOOTER */
 footer {
   background: var(--color-light);
@@ -364,23 +377,48 @@ details.menu nav {
   }
 
   /* Centrar elementos que quedan sueltos al reducir la pantalla */
-  .container > *:only-child {
-    margin-left: auto;
-    margin-right: auto;
+    .container > *:only-child {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center;
     max-width: 900px;
   }
+
+  /* Centrar una única tarjeta dentro de .cards */
   .cards > .card:only-child {
-    margin: 0 auto;
-    max-width: 640px;
-  }
-  .portfolio > figure:only-child {
-    margin: 0 auto;
-    max-width: 640px;
+    margin: 0 auto !important;
+    max-width: 720px;
+    width: 100%;
+    justify-content: center;
+    justify-self: center;
   }
 
-  /* Portfolio: pasar a 2 columnas en esta resolución */
+  /* Centrar una única figura dentro de .portfolio */
+  .portfolio > figure:only-child {
+    margin: 0 auto !important;
+    max-width: 720px;
+    width: 100%;
+    justify-self: center;
+  }
+
+  /* Forzar centrado de grids dentro de #servicios y #blog */
+  #servicios .cards,
+  #blog .cards {
+    justify-items: center;
+    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  #servicios .cards > .card,
+  #blog .cards > .card {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Asegurar que portfolio pase a 2 columnas en este rango */
   .portfolio {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 1.5rem;
   }
 }
@@ -580,53 +618,6 @@ details.menu nav {
     max-width: 100%;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-  }
-}
-
-/* 17. RESPONSIVE: 701px a 1000px (nuevo) */
-@media screen and (min-width: 701px) and (max-width: 1000px) {
-  /* Centrar elementos que queden sueltos en este rango */
-  .container > *:only-child {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    max-width: 900px;
-  }
-
-  /* Centrar una única tarjeta dentro de .cards */
-  .cards > .card:only-child {
-    margin: 0 auto !important;
-    max-width: 720px;
-    width: 100%;
-    justify-self: center;
-  }
-
-  /* Centrar una única figura dentro de .portfolio */
-  .portfolio > figure:only-child {
-    margin: 0 auto !important;
-    max-width: 720px;
-    width: 100%;
-    justify-self: center;
-  }
-
-  /* Forzar centrado de grids dentro de #servicios y #blog */
-  #servicios .cards,
-  #blog .cards {
-    justify-items: center;
-    align-items: start;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  #servicios .cards > .card,
-  #blog .cards > .card {
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* Asegurar que portfolio pase a 2 columnas en este rango */
-  .portfolio {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1.5rem;
   }
 }
 
