@@ -243,6 +243,15 @@ section h2 {
   box-shadow: 0 8px 15px rgba(0,0,0,0.05);
 }
 
+.aligner article{
+  float: right;
+  width: 40%;
+}
+
+.aligner img{
+  width: 50%;
+}
+
 /* 12. PORTAFOLIO (modificado: 4 columnas por defecto) */
 
 #portafolio{
