@@ -310,10 +310,16 @@ section h2 {
   max-width: 900px;
 }
 
+.contact h2{
+  font-size: smaller;
+}
+
+.contact p{
+  font-size:xx-large}
+
 .contact a {
   color: #fff;
   font-weight: 600;
-  text-decoration: underline;
 }
 
 
@@ -328,8 +334,20 @@ section h2 {
     margin-top: 0.9rem;
   }
 }
+/* 14. BLOG */
 
-/* 14. FOOTER */
+.blog h2{
+  font-weight: normal;
+}
+
+.blog img{
+ width: 50px;
+}
+.subtext{
+  color: var(--color-gray);
+}
+
+/* 15. FOOTER */
 footer {
   background: var(--color-light);
   color: var(--color-gray);
