@@ -90,6 +90,15 @@ header nav a {
   background: var(--color-secondary);
 }
 
+.primary-title {
+  color: var(--color-primary);
+  font-size: smaller;
+}
+
+.primary-subtitle{
+  font-size: xx-large;
+}
+
 /* 6. HERO */
 .hero {
   display: flex;
@@ -258,6 +267,11 @@ section h2 {
   background-color: var(--color-light);
 }
 
+#portfolio h3{
+  color: var(--color-secondary);
+  font-size: smaller;
+}
+
 .portfolio {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* forzar 4 columnas en desktop */
@@ -336,6 +350,10 @@ section h2 {
 }
 /* 14. BLOG */
 
+.blog{
+  text-align: center;
+}
+
 .blog h2{
   font-weight: normal;
 }
@@ -345,6 +363,11 @@ section h2 {
 }
 .subtext{
   color: var(--color-gray);
+}
+
+.blog a{
+  background-color: var(--color-secondary);
+  margin: auto;
 }
 
 /* 15. FOOTER */
