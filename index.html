@@ -10,7 +10,8 @@
 <body>
 
   <header>
-    <div class="logo">Prelude</div>
+    <div class="logo"><img src="static/images/Logo.png" alt="Prelude" height="60 px" width="60 px"></div>
+    <audio src="static/audio/Shop theme mix.mp3" controls autoplay loop></audio>
 
     <!-- Replaced: nav wrapped in a details/summary to allow toggle without JS -->
     <details class="menu" role="navigation" aria-label="Main navigation menu">
@@ -83,6 +84,12 @@
   <section id="estudio" class="video-section">
     <div class="container">
       <img src="static/images/Chico con VR.png" alt="Video presentation">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/FC-bF9_FN9M?si=LGxbYLCKPdQ0IWEj" 
+      title="YouTube video player" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      referrerpolicy="strict-origin-when-cross-origin" 
+      allowfullscreen></iframe>
        <article>
             <h3>WE ARE A FUTURE-ORIENTED HYBRID AGENCY</h3>
             <h2 class="primary-subtitle"><strong>Creative Studio</strong> & Technology</h2>
@@ -199,6 +206,8 @@
     <a href="mailto:info@prelude.com" class="btn-primary">Get started</a>
   </section>
 
+  
+
   <section id="blog" class="blog">
     <div class="container">
       <h2><strong>Our insights</strong> & creative ideas</h2>
@@ -223,11 +232,30 @@
         <a href="mailto:info@prelude.com" class="btn-primary">View all posts</a>
       </div>
     </div>
+
+    <video width="400px" controls>
+      <source src="static/video/Vídeo proyecto multimedia.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
   </section>
 
   <footer>
     <p>© 2025 Prelude Agency. All rights reserved.</p>
     <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+
+    <svg height="130" width="500">
+      <defs>
+        <linearGradient id="grad1">
+          <stop offset="0%" stop-color="greenyellow" />
+          <stop offset="100%" stop-color="cyan" />
+        </linearGradient>
+      </defs>
+      <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+      <text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">APM</text>
+      Sorry, your browser does not support inline SVG.
+    </svg>
+    
   </footer>
 
 </body>
