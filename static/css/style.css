@@ -169,6 +169,32 @@ section h2 {
   text-align: center;
 }
 
+/* 8.b SERVICIOS */
+#servicios .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+#servicios h2 {
+  flex-basis: 100%;
+}
+
+#servicios .cards {
+  flex: 1;
+  min-width: 280px;
+}
+
+#servicios .container > article {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
 /* 9. VIDEO / MEDIA */
 .video-section {
   text-align: center;
