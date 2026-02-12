@@ -212,19 +212,45 @@ section h2 {
   
 }
 
+.experience > .container > div:last-child {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.experience > .container > div:last-child > article:first-child {
+  flex: 0 0 auto;
+}
+
+.experience > .container > div:last-child > article:last-child {
+  flex: 0 0 auto;
+  width: 75%;
+  text-align: left;
+}
+
+.experience > .container > div:last-child > article:last-child p {
+  margin-left: auto;
+}
+
+.experience > .container > div:last-child > article:last-child a {
+  display: inline-block;
+  border: 2px solid var(--color-secondary);
+  color: var(--color-secondary);
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: 0.3s;
+}
+
+.experience > .container > div:last-child > article:last-child a:hover {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
 .experience article{
   margin-top: 2rem;
-}
-
-.derecha{
-  float: right;
-  box-sizing: border-box;
-}
-
-.derecha p {
-  text-align: left;
-  margin-top: auto;
-  float: right;
 }
 
 .selected{
@@ -232,12 +258,25 @@ section h2 {
 }
 
 /* 11. ESTADÍSTICAS */
-.stats {
+#estadisticas .container {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+#estadisticas .container > article {
+  flex: 0 0 auto;
+  width: 40%;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
   gap: 3rem;
   flex-wrap: wrap;
   text-align: center;
+  flex: 1;
 }
 
 .stat {
@@ -252,13 +291,41 @@ section h2 {
   box-shadow: 0 8px 15px rgba(0,0,0,0.05);
 }
 
-.aligner article{
-  float: right;
-  width: 40%;
+.stat:nth-child(1) strong {
+  color: #6c63ff;
+  font-size: 1.8rem;
 }
 
-.aligner img{
-  width: 50%;
+.stat:nth-child(2) strong {
+  color: #ff6b5b;
+  font-size: 1.8rem;
+}
+
+.stat:nth-child(3) strong {
+  color: #ffc107;
+  font-size: 1.8rem;
+}
+
+.stat:nth-child(4) strong {
+  color: #6c63ff;
+  font-size: 1.8rem;
+}
+
+#estadisticas a {
+  display: inline-block;
+  border: 2px solid var(--color-secondary);
+  background: var(--color-secondary);
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: 0.3s;
+}
+
+#estadisticas a:hover {
+  opacity: 0.85;
 }
 
 /* 12. PORTAFOLIO (modificado: 4 columnas por defecto) */
